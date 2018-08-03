@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <title>HotelStay</title>
+</head>
+
+<body id="body">
+  <!-- Navbar (Signed in) -->
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand" href="landing.html">HotelStay</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mobile-nav">
+
+        <ul class="navbar-nav ml-auto">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" onClick="logout()">
+              <img class="rounded-circle" style="width: 25px;margin-right:5px" src="https://www.gravatar.com/avatar/anything?s=200&d=mm"
+                alt="" title="You must have a Gravatar connected to your email to display an image" /> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="display-4">Dashboard</h1>
+          <p id="guestName" onload="addUser()" class="lead text-muted">Welcome</p>
+          <!-- Dashboard Actions -->
+          <div class="btn-group mb-4" role="group">
+            
+          </div>
+
+          <!-- Available Rooms -->
+          <div>
+            <h4 class="mb-2">Available Rooms</h4>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Guest Email</th>
+                  <th>Room Occupied</th>
+                  <th>Room Number</th>
+                  <th><button class="btn btn-danger" onClick="loadAvailableRooms()"><!-- TODO create loadRooms function -->
+                      Refresh
+                    </button></>
+                </tr>
+              </thead>
+              <tbody id="AvailableRooms">
+                <tr>
+                  <td>No data</td>
+                  <td>No data</td>
+                  <td>No data</td>
+                  <td><img src="" alt="room pic"/></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Guests -->
+          <div>
+            <h4 class="mb-2">Submit Reservations</h4>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Guest</th>
+                  <th>Age</th>
+                  <th>Email</th>
+                  <th>VIP Status</th>
+                  <th><button class="btn btn-danger" onClick="loadGuests()"><!-- TODO create loadGuests function -->
+                      Refresh
+                    </button></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dan Rathers</td>
+                  <td>30</td>
+                  <td>Testing@gmail.com</td>
+                  <td>Yes</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>David Reese</td>
+                  <td>46</td>
+                  <td>AnotherEmail</td>
+                  <td>No</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Reservations -->
+          <div>
+            <h4 class="mb-2">Status of Reservations</h4>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Guest Email</th>
+                  <th>Host Name</th>
+                  <th>Room Number</th>
+                  <th>Date Reserved</th>
+                  <th>Checkin Date</th>
+                  <th>Images</th>
+                  <th><button class="btn btn-danger" onClick="loadReservations()"><!-- TODO create loadReservations() function -->
+                      Refresh
+                    </button></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="reservationEmail">Test@gmail.com</td>
+                  <td>John Host</td>
+                  <td> 300 </td>
+                  <td>07-02-2018</td>
+                  <td> 07-17-2018 </td>
+                  <td><img src="" alt="room pic"/></td>
+                  <td>
+                   <span> <button class="btn btn-danger">
+                      Deny
+                    </button></span><br>
+                    <button class="btn btn-primary">
+                      Approve
+                    </button>
+                  </td>
+                 
+                </tr>
+                <tr>
+                  <td>Test@gmail.com</td>
+                  <td>John Host</td>
+                  <td> 300 </td>
+                  <td>07-02-2018</td>
+                  <td> 07-17-2018 </td>
+                  <td><input type="file" name="photo" size="50"></td>
+                  <td>
+                   <span> <button class="btn btn-danger">
+                      Deny
+                    </button></span><br>
+                    <button class="btn btn-primary">
+                      Approve
+                    </button>
+                  </td>
+                 
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          
+            <!-- Reservations -->
+          <div>
+            <h4 class="mb-2">View/Edit profile</h4>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Guest Email</th>
+                  <th>Guest Name</th>
+                  <th>Guest age</th>
+                  <th>Date Reserved</th>
+                  <th>Checkin Date</th>
+                  <th>Images</th>
+                  <th><button class="btn btn-danger" onClick="changeProfile()"><!-- TODO create changeProfile function -->
+                      Edit Profile
+                    </button></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="reservationEmail">Test@gmail.com</td>
+                  <td>John Host</td>
+                  <td> 300 </td>
+                  <td>07-02-2018</td>
+                  <td> 07-17-2018 </td>
+                  <td><img src="" alt="room pic"/></td>
+                  <td/>
+                 
+                </tr>
+                <tr>
+                  <td>Test@gmail.com</td>
+                  <td>John Host</td>
+                  <td> 300 </td>
+                  <td>07-02-2018</td>
+                  <td> 07-17-2018 </td>
+                  <td/>
+                 
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Issues -->
+          <div>
+            <h4 class="mb-2">Issues</h4>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Email</th>
+                  <th>Comment</th>
+                  <th>Date</th>
+                  <th> <button class="btn btn-danger" onClick="loadIssues()">
+                      refresh
+                    </button></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="row1">
+                  <td id="issuesEmail"><input type="text" name="guestEmail"/></td>
+                  <td id="issuesComment"><input type="text" name="issueComment"/></td>
+                  <td id="issuesDate"><input type="text" name="issueDate"/></td>
+                  <td>
+                    <button class="btn btn-primary" onClick="sendIssues()"> <!-- TODO create send issues-->
+                      Send
+                    </button>
+                  </td>
+                </tr>
+                
+              </tbody>
+              
+            </table>
+          </div>
+          <br>
+          <div style="margin-bottom: 60px;">
+            <button class="btn btn-danger" onClick="logout()" >
+              Log out
+            </button>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white mt-5 p-4 text-center">
+    Copyright &copy; 2018 HotelStay
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    
+	<script src="js/GuestFunctions.js"></script>
+	<script src="js/GeneralFunctions.js"></script>
+		
+	
+</body>
+
+</html>

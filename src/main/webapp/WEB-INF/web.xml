@@ -1,0 +1,104 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>HotelVist</display-name>
+  
+  <servlet>
+  	<servlet-name>Register</servlet-name>
+  	<servlet-class>com.revature.projectone.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+  	<servlet-class>com.revature.projectone.servlet.LoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>RoomServlet</servlet-name>
+  	<servlet-class>com.revature.projectone.servlet.RoomServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>GuestServlet</servlet-name>
+  	<servlet-class>com.revature.projectone.servlet.GuestServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>IssueServlet</servlet-name>
+  	<servlet-class>com.revature.projectone.servlet.IssueServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ReservationServlet</servlet-name>
+  	<servlet-class>com.revature.projectone.servlet.ReservationServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<servlet-class>com.revature.projectone.servlet.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GuestPortal</servlet-name>
+  	<servlet-class>com.revature.projectone.servlet.GuestPortal</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>HostPortal</servlet-name>
+  	<servlet-class>com.revature.projectone.servlet.HostPortal</servlet-class>
+  </servlet>
+	
+	
+	<servlet-mapping>
+		<servlet-name>Register</servlet-name>
+		<url-pattern>/Register</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RoomServlet</servlet-name>
+		<url-pattern>/RoomServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>GuestServlet</servlet-name>
+		<url-pattern>/GuestServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>IssueServlet</servlet-name>
+		<url-pattern>/IssueServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ReservationServlet</servlet-name>
+		<url-pattern>/ReservationServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>GuestPortal</servlet-name>
+		<url-pattern>/GuestPortal</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>HostPortal</servlet-name>
+		<url-pattern>/HostPortal</url-pattern>
+	</servlet-mapping>
+	
+	<error-page>
+    	<error-code>404</error-code>
+    	<location>/index.html</location>
+  	</error-page>
+  	
+  	<error-page>
+    	<error-code>400</error-code>
+    	<location>/login</location>
+  	</error-page>
+	
+</web-app>
